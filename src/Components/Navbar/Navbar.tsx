@@ -263,20 +263,20 @@ function Navbar() {
                 <Flex id="group-right-nav" gap={5}>
 
                     <Link href="/search">
-                        <Flex id="tabs-1-tab-1" color={colorChange ? '#555' : ''} className={style.payRent}>
+                        <Flex id="tabs-1-tab-1" fontWeight={pathname == '/search' ? 500 : 400} color={colorChange ? '#555' : ''} className={style.payRent}>
                             <GrHome /> Properties
                         </Flex>
                     </Link>
 
                     <Link href="/agencies">
-                        <Flex color={colorChange ? '#555' : ''} className={style.payRent}>
+                        <Flex fontWeight={pathname == '/agencies' ? 500 : 400} color={colorChange ? '#555' : ''} className={style.payRent}>
                             <GrMultiple />
                             Agencies
                         </Flex>
                     </Link>
 
                     <Link href="/news">
-                        <Flex id="tabs-1-tab-1" color={colorChange ? '#555' : ''} className={style.payRent}>
+                        <Flex fontWeight={pathname == '/news' ? 500 : 400} id="tabs-1-tab-1" color={colorChange ? '#555' : ''} className={style.payRent}>
                             <GrDocumentText /> News
                         </Flex>
                     </Link>

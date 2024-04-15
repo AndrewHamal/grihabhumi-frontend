@@ -307,7 +307,7 @@ export default function Property({ prop }: any) {
 
                             {/* includes  */}
                             <div id="includes"></div>
-                            <h4 className="font-[500] text-[18px] text-gray-700 mt-9">Property Includes</h4>
+                            {prop?.features?.length > 0 && <h4 className="font-[500] text-[18px] text-gray-700 mt-9">Property Includes</h4>}
 
                             <div className="grid grid-cols-5 gap-3 mt-2">
                                 {
@@ -325,7 +325,7 @@ export default function Property({ prop }: any) {
                             {/* nearby  */}
                             <div id="nearby"></div>
 
-                            <h4 className="font-[500] text-[18px] text-gray-700 mt-9">Nearby Facilities</h4>
+                            {prop?.facilities?.length > 0 && <h4 className="font-[500] text-[18px] text-gray-700 mt-9">Nearby Facilities</h4>}
 
                             <div className="grid grid-cols-5 gap-3 mt-2">
                                 {

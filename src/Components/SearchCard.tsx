@@ -143,10 +143,12 @@ export default function SearchCard({ res }: any) {
                                 </div>
                             </div>
                             <div className="my-auto ml-auto flex gap-2">
-                                <button className="btn bg-[#009587] px-2 rounded-[6px] flex items-center gap-1 font-[500] text-[13px]">
-                                    <MdPhone />
-                                    Call
-                                </button>
+                                {res?.author?.phone && <Link href={`tel:+977${res?.author?.phone}`}>
+                                    <button className="btn bg-[#009587] h-[100%] px-2 rounded-[6px] flex items-center gap-1 font-[500] text-[13px]">
+                                        <MdPhone />
+                                        Call
+                                    </button>
+                                </Link>}
 
                                 <Link href={`/${res?.slugable?.prefix}/${res?.slugable?.key}`}>
                                     <button className="btn btn-primary flex items-center gap-2 font-[500] text-[13px]">
