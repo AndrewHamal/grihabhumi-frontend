@@ -106,7 +106,7 @@ export default function index() {
                                     >
                                         <Image
                                             objectFit='cover'
-                                            className="w-[100%]"
+                                            className="w-[300px] min-w-[300px]"
                                             src={res.image}
                                             alt={res.name}
                                         />
