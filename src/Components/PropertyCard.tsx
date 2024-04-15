@@ -95,7 +95,7 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
                             </div>}
 
                             {!isAgentPage && <div className="pt-3 flex gap-3 items-center border-t-[1px] border-[#e2e2e2]">
-                                {res?.author?.avatar?.url && <Image src={storageUrl + res?.author?.avatar?.url} alt="" className="rounded-full w-[38px] h-[38px]" />}
+                                {res?.author?.avatar?.url && <Image src={storageUrl + res?.author?.avatar?.url} alt="" objectFit={"contain"} className="rounded-full w-[38px] h-[38px] object-contain" />}
                                 <div className="avz awo">
                                     <Text noOfLines={1} className="leading-[17px] font-[600]">
                                         <span className="text-[#464646] text-[14px]">{res?.investor?.name || (res?.author?.first_name + ' ' + res?.author?.last_name)}</span>
