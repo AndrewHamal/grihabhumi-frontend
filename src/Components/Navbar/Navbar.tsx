@@ -36,11 +36,12 @@ import Logo from "../Logo";
 function Navbar() {
     const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure()
     const router = useRouter()
-    const [popTab, setPopTab] = useState('login')
-    const [keyword, setKeyword] = useState('')
-    const { isOpen: isSignUpOpen, onOpen: onSignUpOpen, onClose: onSignUpClose } = useDisclosure()
     const pathname = usePathname()
     const { query } = useRouter()
+    const [keyword, setKeyword] = useState('')
+    const [popTab, setPopTab] = useState('login')
+    const [colorChange, setColorchange] = useState(false);
+    const { isOpen: isSignUpOpen, onOpen: onSignUpOpen, onClose: onSignUpClose } = useDisclosure()
     const [isMobile] = useMediaQuery(`(max-width: 808px)`);
     const cookie = getCookie('token');
 
@@ -52,7 +53,12 @@ function Navbar() {
         }
     }, [pathname]);
 
-    const [colorChange, setColorchange] = useState(false);
+    useEffect(() => {
+        if (query?.login == 'true') {
+            onSignUpOpen()
+        }
+    }, [query])
+
     const changeNavbarColor = () => {
         if (window.scrollY >= 40) {
             setColorchange(true);
@@ -67,7 +73,6 @@ function Navbar() {
                 window?.addEventListener("scroll", changeNavbarColor);
             }
         }
-
     }, [pathname])
 
     const menu = (ele: any) => (<Menu>
@@ -106,7 +111,7 @@ function Navbar() {
             </MenuItem>}
 
             <MenuItem className="border-b">
-                <Link href="/account/properties/create" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
+                <Link href={"/account/properties/create"} className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
                     <MdPostAdd className="mb-[2px]" size={20} />
                     Post Your Property
                 </Link>
@@ -281,7 +286,7 @@ function Navbar() {
                         </Flex>
                     </Link>
 
-                    <Link onClick={() => !user?.data?.email ? onSignUpOpen() : {}} href={user?.data?.email ? "/account/properties/create" : ""}>
+                    <Link href={"/account/properties/create"}>
                         <Flex
                             className={style.payRent}
                             bgColor="#009587"

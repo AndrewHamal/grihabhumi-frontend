@@ -399,9 +399,11 @@ function Homepage() {
             </Flex>
 
             <Box w="100%" m="auto">
-              <Flex className={style.postYourAd} bgColor="#009587" color="white">
-                Post Free property ad
-              </Flex>
+              <Link href={"/account/properties/create"}>
+                <Flex className={style.postYourAd} bgColor="#009587" color="white">
+                  Post Free property ad
+                </Flex>
+              </Link>
             </Box>
           </div>
         </div>
