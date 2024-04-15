@@ -718,7 +718,7 @@ function Homepage() {
                     <li key={key}>
                       <Link target="_blank" href={`/agency/${res?.id}`}>
                         <div className="flex transition transition duration-500 ease-in-out items-center gap-x-4 shadow-sm p-3 bg-gray-100 hover:bg-blue-200 rounded-2xl">
-                          <Image objectFit={"contain"} className="w-16 h-16 rounded-2xl" src={storageUrl + res?.avatar?.url} alt="" />
+                          <Image objectFit={"contain"} className="w-16 h-16 rounded-[6px] rounded-2xl" src={storageUrl + res?.avatar?.url} alt="" />
                           <div>
                             <h3 className="font-semibold leading-5 tracking-tight text-gray-900 text-[14px]">{res?.company || (res?.first_name + ' ' + res?.last_name)}</h3>
                             <p className="text-sm font-semibold leading-6 text-indigo-600">{res?.properties_count} properties</p>
