@@ -88,7 +88,7 @@ export default function index() {
                 <div className="@7xl:container mx-auto py-20">
                     <div className="grid @3xl:flex gap-10">
                         <div className="@3xl:w-[75%] @3xl:order-[unset] order-2">
-                            {!data && <Spinner />}
+                            {!data && <div className="flex items-center gap-3"><Spinner /> Loading...</div>}
 
                             {data && news?.length === 0 && <div className="bg-white p-4 flex items-center gap-3 rounded-[12px] border">
                                 <BsExclamationCircle />

@@ -277,7 +277,7 @@ function Homepage() {
               <Box w="fit-content" m="auto">
                 <Flex className={style.nIcon}>
                   <Image src={'/Images/Homepage/nIcon.png'} alt="" />
-                  <Text className="text-white ml-1">Buy or Rent with Gorkha Nepal!</Text>
+                  <Text className="text-white ml-1">Buy or Rent with Grihabhumi!</Text>
                 </Flex>
               </Box>
               <Grid className={style.buyRent}>
