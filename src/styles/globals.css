@@ -1094,3 +1094,8 @@ aside a svg {
 
   .news {}
 }
+
+.landscape-footer {
+  z-index: -1;
+  opacity: 0.2;
+}
