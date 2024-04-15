@@ -9,7 +9,7 @@ export default function AgencyCard({ res, className, isProperty = false, wrapper
             <div className={`${!isProperty ? 'p-3' : ''} property-card ${wrapperClass ? wrapperClass : ''}`}>
                 <div className={`relative bg-white h-[100%] ${isProperty ? 'shadow-sm' : ''}  h-[100%] rounded-[12px] overflow-hidden ` + (className ? className : '')}>
                     <div className="relative overflow-hidden">
-                        {res?.avatar?.url ? <Image src={storageUrl + res?.avatar?.url} fit={"cover"} width={"100%"} height={"200px"} objectFit={"cover"} /> :
+                        {res?.avatar?.url ? <Image alt={res.company} src={storageUrl + res?.avatar?.url} fit={"cover"} width={"100%"} height={"200px"} objectFit={"cover"} /> :
                             <Avatar roundedBottom={0} roundedTop={12} w="100%" h={"180px"} name={res?.first_name + ' ' + res?.last_name} />}
                         <div className="flex gap-2 absolute bottom-0 mx-3 mb-3">
                             <div className="bg-blue-500 text-white text-[13px] px-2 py-[1px] rounded-[10px]">

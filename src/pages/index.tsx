@@ -276,7 +276,7 @@ function Homepage() {
               </Text>
               <Box w="fit-content" m="auto">
                 <Flex className={style.nIcon}>
-                  <Image src={'/Images/Homepage/nIcon.png'} />
+                  <Image src={'/Images/Homepage/nIcon.png'} alt="" />
                   <Text className="text-white ml-1">Buy or Rent with Gorkha Nepal!</Text>
                 </Flex>
               </Box>
@@ -507,7 +507,7 @@ function Homepage() {
 
             <div className="flex gap-4 items-center">
               <div className="flex items-center gap-2">
-                <Image width={"18px"} src="/assets/stars.png" />
+                <Image width={"18px"} src="/assets/stars.png" alt="" />
                 <h4 className="font-[500] text-[19px] text-[#0E578C]/[0.8] ">Premium Properties</h4>
               </div>
 
@@ -752,7 +752,7 @@ function Homepage() {
                 <div className="flex gap-[80px] items-between pt-11 pb-5">
                   <div className="flex flex-grow items-center border border-[#EBEFF4] px-5 py-1 rounded-[20px] overflow-hidden">
                     <div className="bg-blue-100 flex items-center p-3 rounded-[12px]">
-                      <Image className={isMobile ? "w-[16px]" : "w-[30px]"} src="/assets/list.png" />
+                      <Image className={isMobile ? "w-[16px]" : "w-[30px]"} src="/assets/list.png" alt="" />
                     </div>
 
                     <Box className="w-[100%] items-center flex bg-white h-[100%] pl-5 py-4">

@@ -135,7 +135,7 @@ export default function News({ news }: any) {
                                                 <Link href={`/news/${res.slug}`}>
                                                     <span className="flex gap-3 items-center text-gray-700 text-[14px] font-[500]">
                                                         <span className="text-white flex items-center juetify-center" >
-                                                            <img className="min-w-[50px] w-[50px] rounded-[6px]" src={res.image} />
+                                                            <img alt="" className="min-w-[50px] w-[50px] rounded-[6px]" src={res.image} />
                                                         </span> {res.name}
                                                     </span>
                                                 </Link>

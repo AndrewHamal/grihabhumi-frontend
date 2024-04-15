@@ -13,7 +13,7 @@ import { useDropzone } from 'react-dropzone'
 import { postProperty, postUpload } from "@/pages/api/authApi";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { storageUrl } from "@/Constant/helper";
+import { apiURL, storageUrl } from "@/Constant/helper";
 import { toast } from "react-toastify";
 
 const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
@@ -830,7 +830,6 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
 
 export async function getServerSideProps({ req, res, params }: any) {
     let token = req.cookies.token;
-    const apiURL = 'http://127.0.0.1:8000/api/'
 
     const features = await axios.get(apiURL + `features`);
     const categories = await axios.get(apiURL + `categories?response=api`);

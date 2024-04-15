@@ -387,7 +387,7 @@ export default function Property({ prop }: any) {
                                             <Tbody>
                                                 {
                                                     prop?.property?.map((res: any, key: number) => (
-                                                        <Tr>
+                                                        <Tr key={key}>
                                                             <Td className="text-[14px]">{++key}</Td>
                                                             <Td className="text-[14px]">{res?.ropani || 0}-{res?.aana || 0}-{res?.paisa || 0}-{res?.daam || 0}</Td>
                                                             <Td className="text-[14px]">{res?.square} {res?.area_type}</Td>
