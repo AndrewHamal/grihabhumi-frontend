@@ -146,7 +146,7 @@ export default function Services({ services: lists, servicesList }: any) {
                         <div className="w-[30%] pb-11">
                             {
                                 lists && lists?.mergedBanner?.map((res: any, key: number) => (
-                                    <Image alt="Nepal's Top Services" rounded={6} marginBottom={5} key={key} src={storageUrl + res} />
+                                    <Image alt="Nepal's Top Services" className="w-[100%]" rounded={6} marginBottom={5} key={key} src={storageUrl + res} />
                                 ))
                             }
                         </div>
