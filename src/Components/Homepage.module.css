@@ -1,0 +1,360 @@
+/* body html {
+    color: #464646 !important;
+    font-size: 14px;
+    font-family: Source Sans Pro, sans-serif !important;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+} */
+
+
+.homepageContainer {
+    padding-top: 70px;
+    padding: 65px 20px 30px 20px;
+    background-color: #fdfdfd;
+}
+
+.homeTitle {
+    font-size: 32px;
+    font-weight: 400;
+    color: #ffffffcc;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-top: 40px;
+}
+
+.nIcon {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    color: #464646;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 3px;
+    background-color: rgba(252, 178, 68, .2);
+}
+
+.nIcon>img {
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+    transition: .2s;
+    animation: scale 1s ease-in-out infinite;
+}
+
+@keyframes scale {
+    to {
+        transform: scale(1.3);
+    }
+}
+
+.buyRent {
+    width: 370px;
+    background-color: #f9f9fb;
+    margin: 30px auto 0;
+    border-radius: 4px 4px 0 0;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.buyRent>div:first-child {
+    border-right: 1px solid #efefef;
+}
+
+.buyRent>div {
+    text-align: center;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 40px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #afaaaa;
+    text-decoration: none;
+}
+
+
+
+.searchBox {
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+
+    cursor: default;
+    flex-wrap: wrap;
+}
+
+.searchBox select {
+    height: 50px;
+    font-size: 16px;
+    border-radius: 4px 0 0 0;
+    /* border: 1px solid #e2e2e2; */
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    outline: 0px !important;
+
+}
+
+/* option {
+    padding: 8px !important;
+    font-size: 14px !important;
+} */
+
+
+.searchInput {
+    height: 100%;
+}
+
+.searchInput>input {
+    min-width: 540px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 0;
+    border: 1px solid #e2e2e2;
+    padding-left: 15px;
+}
+
+.searchInput>input:focus-visible {
+    box-shadow: none !important;
+    border: 1px solid #e2e2e2 !important;
+}
+
+.searchButton {
+    height: 50px !important;
+    padding: 12px 20px;
+    font-size: 18px;
+    z-index: 1;
+    width: 180px;
+    border-radius: 0 4px 0 0 !important;
+    font-weight: 400;
+}
+
+.searchButton:hover {
+    background-color: #1e87d2 !important;
+}
+
+.filterBox {
+    height: 59px;
+    background-color: #f9f9fb;
+    width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    /* border: 1px solid #e2e2e2;
+    border-top: 0 solid #e2e2e2; */
+    border-radius: 0 0 4px 4px;
+    align-items: center;
+}
+
+.postYourAd {
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 2px;
+    font-size: 13px;
+    height: 40px;
+    overflow: hidden;
+    font-size: 16px;
+    padding: 7px 25px;
+    width: fit-content;
+    margin: auto;
+}
+
+
+.optiosWithIcon {
+    flex-wrap: wrap;
+    align-items: baseline;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.optiosWithIcon>a {
+    padding: 10px 15px;
+
+    /* text-decoration: none !important; */
+    /* width: 16.6667%; */
+}
+
+.optiosWithIcon>a img:hover {
+    cursor: pointer;
+    transition-duration: 0.4s;
+    transform: scale(1.2);
+}
+
+.optiosWithIcon>a>:first-child {
+    font-weight: 600;
+    height: 80px;
+    width: 80px;
+    margin-bottom: 6px;
+    background-color: #ffefd9;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.optiosWithIcon>a>:last-child {
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+    color: #0f172a !important;
+}
+
+.optiosWithIcon img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+.horizontalLineBox {
+    display: flex;
+    opacity: .5;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.horizontalLine {
+    height: 1px;
+    width: 100%;
+    background-color: #707070;
+}
+
+.redCircle {
+    height: 20px;
+    width: 20px;
+    border: 2px solid #0E578C;
+    border-radius: 50%;
+}
+
+.whyUse {
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.whyUse img {
+    margin: auto;
+    filter: opacity(0.6);
+}
+
+.whyUse img:hover {
+    cursor: pointer;
+    transition-duration: 0.4s;
+    transform: scale(1.2);
+}
+
+.whyUse>div>:nth-child(2) {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.whyUse>div>:last-child {
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 4px;
+    color: #464646 !important;
+}
+
+
+.enquiryBtn {
+    margin-top: 30px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0E578C;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: -1px;
+}
+
+.reviewBox {
+    padding: 40px;
+    color: #fff;
+    background-color: #334a5c;
+
+}
+
+.reviewBox iframe {
+    display: inline;
+    width: 560px;
+    height: 320px;
+    vertical-align: middle;
+}
+
+
+
+.userAvatarBox>img {
+    height: 35px;
+    width: 35px;
+    border-radius: 100px;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.ratting_star {
+    display: inline;
+    width: 14px;
+    color: #009587;
+}
+
+.descriptionBox {
+    margin-top: 20px;
+    max-height: 140px;
+    overflow: hidden;
+}
+
+
+
+.mobileIconBox {
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobileIconBox img {
+    max-width: 80%;
+    height: auto;
+    display: inline-block;
+}
+
+.radioBtnBox>label>:last-child {
+    font-size: 12px !important;
+}
+
+
+.apartmentType {
+    border: 1px solid #e2e2e2 !important;
+    font-size: 12px !important;
+    border-radius: 0;
+    background-color: #fcfcfc;
+}
+
+
+.menuItems {
+    min-width: fit-content !important;
+    padding: 0;
+    border-radius: 0 !important;
+    border: 1px solid #e2e2e2 !important;
+    padding-right: 10px !important;
+}
+
+.menuItems2 {
+    width: 100px;
+    padding: 0;
+    border-radius: 0 !important;
+    border: 1px solid #e2e2e2 !important;
+    padding-right: 10px !important;
+}
+
+.menuItems button>label>:last-child {
+    font-size: 14px !important;
+
+}
+
+.menuItems2>button {
+    font-size: 14px !important;
+
+}
