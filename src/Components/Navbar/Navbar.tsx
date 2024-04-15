@@ -351,23 +351,23 @@ function Navbar() {
 
                 {pathname === '/' && <div className="nav-switch-wrapper left-0 right-0 hidden absolute flex justify-center bottom-[-20px]">
                     <div className="flex items-center gap-5 p-[6px] border bg-white nav-switch">
-                        <Link href={'/search'}>
+                        <div href={'/search'}>
                             <div className={!pathname?.match('search') ? "bg-[#0e578ce0] flex py-[4px] px-4 rounded-[30px]" : ''}>
                                 <div style={{ backgroundImage: 'url("/assets/home-search.svg")' }} className="prop-search w-[17px] h-[17px] mr-1 my-auto"></div>
                                 <Text color={"#fff"} align={"center"} fontWeight={500} fontSize={14}>
                                     Property Search
                                 </Text>
                             </div>
-                        </Link>
+                        </div>
 
-                        <Link href={'/services'}>
+                        <div href={'/services'}>
                             <div className={pathname?.match('home-serivces') ? " py-2 rounded-[30px] flex" : 'flex pr-4'}>
                                 <div style={{ backgroundImage: 'url("/assets/home-search.svg")' }} className="prop-home w-[17px] h-[17px] mr-1 my-auto"></div>
                                 <Text align={"center"} fontSize={14} fontWeight={500}>
                                     Home Services
                                 </Text>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>}
             </Flex >
