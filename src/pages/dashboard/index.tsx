@@ -6,7 +6,7 @@ import useSWRInfinite from 'swr/infinite'
 import { fetcherAuth } from "../api/authApi";
 import dayjs from "dayjs";
 import { Fragment } from "react";
-import { MdArrowDownward, MdLockClock } from "react-icons/md";
+import { MdArrowDownward, MdLockClock, MdWarning } from "react-icons/md";
 import Link from "next/link";
 
 var relativeTime = require('dayjs/plugin/relativeTime')
@@ -89,6 +89,12 @@ export default function Dashboard() {
                             <div>
                                 {activities?.length != activity?.[0]?.total && <div onClick={() => { setSize(size + 1) }} className="cursor-pointer text-blue-500 text-[14px] flex gap-1 items-center">{isValidating && <Spinner size={"sm"} />} Load More <MdArrowDownward /></div>}
                             </div>
+
+                            {
+                                activities?.length === 0 && <div>
+                                    <p className="font-[500] flex items-center gap-1 text-[15px]"><MdWarning /> No data Found!</p>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

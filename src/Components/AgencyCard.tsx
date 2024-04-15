@@ -1,7 +1,7 @@
-import numDifferentiation, { storageUrl } from "@/Constant/helper";
+import { storageUrl } from "@/Constant/helper";
 import { Avatar, Image, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { MdChevronRight, MdEmail, MdHome, MdOutlineBathtub, MdOutlineKingBed, MdOutlineSquareFoot, MdPhone } from "react-icons/md";
+import { MdEmail, MdHome, MdPhone } from "react-icons/md";
 
 export default function AgencyCard({ res, className, isProperty = false, wrapperClass = '', hideType = false, isAgentPage = false }: any) {
     return (
@@ -12,7 +12,7 @@ export default function AgencyCard({ res, className, isProperty = false, wrapper
                         {res?.avatar?.url ? <Image alt={res.company} src={storageUrl + res?.avatar?.url} fit={"cover"} width={"100%"} height={"200px"} objectFit={"cover"} /> :
                             <Avatar roundedBottom={0} roundedTop={12} w="100%" h={"180px"} name={res?.first_name + ' ' + res?.last_name} />}
                         <div className="flex gap-2 absolute bottom-0 mx-3 mb-3">
-                            <div className="bg-blue-500 text-white text-[13px] px-2 py-[1px] rounded-[10px]">
+                            <div className="bg-blue-500 text-white text-[13px] px-2 py-[1px] rounded-[10px] agency-p">
                                 #{res.company}
                             </div>
                         </div>

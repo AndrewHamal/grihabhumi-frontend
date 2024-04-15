@@ -157,7 +157,7 @@ export default function UserProperties() {
                                 </tr>
                             }
                             {
-                                !data ? <tr><td colSpan={6} className="px-5 py-3 text-center"> <Spinner /> </td></tr> :
+                                !data ? <tr><td colSpan={7} className="px-5 py-3 text-center"> <Spinner /> </td></tr> :
                                     <>
                                         {
                                             data?.data?.map((res: any, key: number) => (

@@ -61,6 +61,7 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                             <Tab>Log In</Tab>
                             <Tab>Register</Tab>
                         </TabList>
+
                         <TabPanels>
                             <TabPanel padding={0}>
                                 <div className='py-5'>
@@ -98,13 +99,14 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                                     </form>
                                 </div>
                             </TabPanel>
+
                             <TabPanel padding={0}>
                                 <div className='py-5'>
                                     <form method='POST' onSubmit={handleSubmitRegister}>
                                         <div>
                                             <label>Email</label>
                                             <FormControl isInvalid={error?.email || false}>
-                                                <InputGroup className='mt-2'>
+                                                <InputGroup className='mt-1'>
                                                     <InputLeftElement pointerEvents='none'>
                                                         <MdEmail className='text-gray-500' />
                                                     </InputLeftElement>
@@ -115,9 +117,23 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                                         </div>
 
                                         <div className='my-4'>
+                                            <label>Phone number</label>
+                                            <FormControl isInvalid={error || false}>
+                                                <InputGroup className='mt-1'>
+                                                    <InputLeftElement pointerEvents='none'>
+                                                        <MdPhone className='text-gray-500' />
+                                                    </InputLeftElement>
+                                                    <Input onKeyUp={() => setError(null)} required={true} name='phone' type={'text'} placeholder='Phone number' />
+                                                </InputGroup>
+
+                                                <FormErrorMessage>{error}</FormErrorMessage>
+                                            </FormControl>
+                                        </div>
+
+                                        <div className='mb-4'>
                                             <label>Password</label>
                                             <FormControl isInvalid={error?.password || false}>
-                                                <InputGroup className='mt-2'>
+                                                <InputGroup className='mt-1'>
                                                     <InputLeftElement pointerEvents='none'>
                                                         <MdKey className='text-gray-500' />
                                                     </InputLeftElement>
@@ -143,7 +159,7 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                                                 <div className='my-4'>
                                                     <label>First Name</label>
                                                     <FormControl isInvalid={error || false}>
-                                                        <InputGroup className='mt-2'>
+                                                        <InputGroup className='mt-1'>
                                                             <InputLeftElement pointerEvents='none'>
                                                                 <MdPerson className='text-gray-500' />
                                                             </InputLeftElement>
@@ -157,7 +173,7 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                                                 <div className='my-4'>
                                                     <label>Last Name</label>
                                                     <FormControl isInvalid={error || false}>
-                                                        <InputGroup className='mt-2'>
+                                                        <InputGroup className='mt-1'>
                                                             <InputLeftElement pointerEvents='none'>
                                                                 <MdPerson className='text-gray-500' />
                                                             </InputLeftElement>
@@ -172,25 +188,11 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                                             <div className='mb-4'>
                                                 <label>Company Name</label>
                                                 <FormControl isInvalid={error || false}>
-                                                    <InputGroup className='mt-2'>
+                                                    <InputGroup className='mt-1'>
                                                         <InputLeftElement pointerEvents='none'>
                                                             <MdApartment className='text-gray-500' />
                                                         </InputLeftElement>
                                                         <Input onKeyUp={() => setError(null)} name='company' type={'text'} placeholder='Company Name' />
-                                                    </InputGroup>
-
-                                                    <FormErrorMessage>{error}</FormErrorMessage>
-                                                </FormControl>
-                                            </div>
-
-                                            <div className='mb-4'>
-                                                <label>Phone number</label>
-                                                <FormControl isInvalid={error || false}>
-                                                    <InputGroup className='mt-2'>
-                                                        <InputLeftElement pointerEvents='none'>
-                                                            <MdPhone className='text-gray-500' />
-                                                        </InputLeftElement>
-                                                        <Input onKeyUp={() => setError(null)} required={true} name='phone' type={'text'} placeholder='Phone number' />
                                                     </InputGroup>
 
                                                     <FormErrorMessage>{error}</FormErrorMessage>

@@ -724,6 +724,11 @@ select:focus-visible {
     display: flex;
   }
 
+  .agency-p {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
   .prop-home {
     background-position: 219px -229px;
     background-size: 299px;

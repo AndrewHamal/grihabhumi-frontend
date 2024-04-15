@@ -234,7 +234,7 @@ function Navbar() {
                         <div className="flex items-center h-[100%]">
                             <Link href="/" className="logo">
                                 <Logo
-                                    type={(['/services', '/news', `/news/${query?.slug}`, `/agencies`, `/agency/${query?.id}`].includes(pathname) && isMobile) ? 'icon' : ''}
+                                    type={(['/services', '/news', '/dashboard', '/account/consult', '/account/settings', '/account/properties', '/account/properties/create', `/projects/${query?.id}`, `/properties/${query?.id}`, `/news/${query?.slug}`, `/agencies`, `/agency/${query?.id}`].includes(pathname) && isMobile) ? 'icon' : ''}
                                     color={isMobile ? "black" : (colorChange ? "black" : "white")}
                                     className={isMobile ? "h-[43px] w-[150px]" : "w-[155px]"}
                                 />
@@ -281,7 +281,7 @@ function Navbar() {
                         </Flex>
                     </Link>
 
-                    <Link href="/account/properties/create">
+                    <Link onClick={() => !user?.data?.email ? onSignUpOpen() : {}} href={user?.data?.email ? "/account/properties/create" : ""}>
                         <Flex
                             className={style.payRent}
                             bgColor="#009587"
@@ -318,7 +318,7 @@ function Navbar() {
                                         <div className="flex items-center pr-4">
                                             <Avatar size={'xs'} name={user?.data?.email} p="0" ml="0" />
                                             <Text color={colorChange ? '#555' : '#ffffffcc'} className="font-[500]" ml={2} fontSize="14px !important" mr="-20px !important">
-                                                {(user?.data?.first_name ? (user?.data?.first_name + ' ' + user?.data?.last_name) : user?.data?.email?.splice(0, 20))}
+                                                {(user?.data?.first_name ? (user?.data?.first_name + ' ' + user?.data?.last_name) : (user?.data?.email ? user?.data?.email?.slice(0, 20) : ""))}
                                             </Text>
                                         </div>
                                     </MenuButton>

@@ -139,6 +139,7 @@ function Search() {
     }
 
     function onSubmit(data: any) {
+        console.log(data)
         if (parseInt(data?.min_price) > parseInt(data?.max_price)) {
             toast.error('Max Price should be greater than Min Price')
             return;
@@ -148,17 +149,17 @@ function Search() {
         Object.entries(data).map((res: any) => {
             if (res[1] != 'undefined' && typeof res[1] != 'undefined' && res[1] != '') {
                 let key = res[0]
-                let getMultiArray = (['category_id', 'property_type', 'furnishing', 'house_type', 'availability', 'city_id', 'condition'].includes(key) && isArray(res[1])) ? res[1]?.map((res: any) => res?._id) : res[1]
+                let getMultiArray = (['category_id', 'property_type', 'furnishing', 'house_type', 'availability', 'city_id', 'condition'].includes(key) && isArray(res[1])) ? res[1]?.map((res: any) => (res?._id || res)) : res[1]
                 searchData = { ...searchData, [key]: (getMultiArray) }
             }
         })
         onClose();
+        console.log('das', searchData)
         route.push({ pathname: '/search', query: searchData })
     }
 
     useEffect(() => {
         let queryParam: any = route.query;
-
         if (Object.keys(queryParam)?.length > 0) {
             reset({
                 ...queryParam,
@@ -189,8 +190,8 @@ function Search() {
         handleSubmit(onSubmit)()
     }
 
-    const cityCount = isArray(watch('city_id')) ? watch('city_id')?.filter((res: any) => typeof res != 'undefined' && res != '') : 0
-    const conditionCount = isArray(watch('condition')) ? watch('condition')?.filter((res: any) => typeof res != 'undefined' && res != '') : 0
+    const cityCount = isArray(watch('city_id')) ? watch('city_id')?.filter((res: any) => typeof res?._id != 'undefined' && res?._id != '') : 0
+    const conditionCount = isArray(watch('condition')) ? watch('condition')?.filter((res: any) => typeof res?._id != 'undefined' && res?._id != '') : 0
     const city_id = useWatch({ control, name: 'city_id' }) || watch('city_id') || []
 
     const condition = useWatch({ control, name: 'condition' }) || []
@@ -201,7 +202,14 @@ function Search() {
     const availability = useWatch({ control, name: "availability" })?.filter((res: any) => typeof res?._id != 'undefined' && res?._id != '').length || 0
     const furnishing = useWatch({ control, name: "furnishing" })?.filter((res: any) => typeof res?._id != 'undefined' && res?._id != '').length || 0
 
-    let totalFilter = parseInt(category_id) + parseInt(house_type) + parseInt(bhk) + parseInt(availability) + parseInt(furnishing) + (watch('min_price') ? 1 : 0) + (watch('max_price') ? 1 : 0)
+    let totalFilter =
+        parseInt(category_id) +
+        parseInt(house_type) +
+        parseInt(bhk) +
+        parseInt(availability) +
+        parseInt(furnishing) +
+        (isMobile ? ((watch('min_price') ? 1 : 0) +
+            (watch('max_price') ? 1 : 0)) : 0)
 
     useEffect(() => {
         if (isMobile) setTab('1')
@@ -339,26 +347,23 @@ function Search() {
 
                                 <div>
                                     <Menu closeOnSelect={false}>
-                                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} border="1px solid #e2e2e2 !important" borderRadius="0" bgColor="#fcfcfc" fontSize="12px !important" fontWeight="400">
+                                        <MenuButton as={Button} size={"sm"} rightIcon={<ChevronDownIcon />} border="1px solid #e2e2e2 !important" borderRadius="0" bgColor="#fff" fontWeight="400">
                                             Location {cityCount?.length > 0 && <span className="text-green-500 font-[500]">[{cityCount?.length}]</span>}
                                         </MenuButton>
 
+
                                         <MenuList rounded={0} className={'rounded-0'}>
-                                            {!cities ? <div className="text-[16px] ml-2">Loading...</div> : cities?.data?.map((res: any, key: number) => (
-                                                <Controller
-                                                    key={key}
-                                                    name={`city_id[${key}]`}
+                                            {!cities ? <div className="text-[16px] ml-2">Loading...</div> :
+                                                <MultiMenuSelect
                                                     control={control}
-                                                    render={({ field: { onChange, value } }) => (
-                                                        <MenuItem value={value}>
-                                                            <Checkbox colorScheme='green' isChecked={city_id.includes(res?.id?.toString()) ? true : false} onChange={(e) => { city_id.includes(res.id?.toString()) ? onChange() : onChange(res.id.toString()) }} fontSize="12px !important">
-                                                                {res.name}
-                                                            </Checkbox>
-                                                        </MenuItem>
-                                                    )}
-                                                />))}
-                                            <MenuItem closeOnSelect={true} _active={{ bg: '' }} _focus={{ bg: '' }} _hover={{ bg: '' }} onClick={e => e.stopPropagation()} blur={false}>
-                                                <button onClick={handleSubmit(onSubmit)} className="btn-primary w-[100%] font-[500] text-[13px]"> Apply</button>
+                                                    name="city_id"
+                                                    arrayData={cities?.data}
+                                                />}
+
+                                            <MenuItem closeOnSelect w={"100%"} className="mt-3">
+                                                <div className="w-[100%]">
+                                                    <button onClick={handleSubmit(onSubmit)} className="btn-primary w-[100%] font-[500] text-[13px]"> Apply</button>
+                                                </div>
                                             </MenuItem>
                                         </MenuList>
                                     </Menu>
@@ -367,32 +372,23 @@ function Search() {
 
                                 <div>
                                     <Menu closeOnSelect={false}>
-                                        <MenuButton as={Button}
-                                            rightIcon={<ChevronDownIcon />}
-                                            border="1px solid #e2e2e2 !important"
-                                            borderRadius="0"
-                                            bgColor="#fcfcfc" fontSize="12px !important" fontWeight="400">
+                                        <MenuButton px={3} size={'sm'} as={Button} rightIcon={<ChevronDownIcon />} border="1px solid #e2e2e2 !important" borderRadius="0" bgColor="#fcfcfc" fontWeight="400">
                                             Condition {conditionCount?.length > 0 && <span className="text-green-500 font-[500]">[{conditionCount?.length}]</span>}
                                         </MenuButton>
                                         <MenuList rounded={0} className={'rounded-0'}>
-                                            {['Brand New', 'Like New', 'Used'].map((res, key) => (
-                                                <Controller
-                                                    key={key}
-                                                    name={`condition[${key}]`}
-                                                    control={control}
-                                                    render={({ field: { onChange, value } }) => (
-                                                        <MenuItem value={value}>
-                                                            <Checkbox colorScheme='green' isChecked={condition.includes(res) ? true : false} onChange={(e) => { condition.includes(res) ? onChange() : onChange(res) }} fontSize="12px !important">
-                                                                {res}
-                                                            </Checkbox>
-                                                        </MenuItem>
-                                                    )}
-                                                />))}
-                                            <MenuItem closeOnSelect={true} _active={{ bg: '' }} _focus={{ bg: '' }} _hover={{ bg: '' }} onClick={e => e.stopPropagation()} blur={false}>
-                                                <button onClick={handleSubmit(onSubmit)} className="btn-primary w-[100%] font-[500] text-[13px]"> Apply</button>
+                                            <MultiMenuSelect
+                                                control={control}
+                                                name="condition"
+                                                arrayData={conditionList}
+                                            />
+                                            <MenuItem closeOnSelect w={"100%"} className="mt-3">
+                                                <div className="w-[100%]">
+                                                    <button onClick={handleSubmit(onSubmit)} className="btn-primary w-[100%] font-[500] text-[13px]"> Apply</button>
+                                                </div>
                                             </MenuItem>
                                         </MenuList>
                                     </Menu>
+
 
                                 </div>
 
@@ -416,7 +412,7 @@ function Search() {
                                                     render={({ field: { onChange, value } }) => (
                                                         <Input
                                                             type="number"
-                                                            onKeyUp={(e: any) => onChange(e.target.value === 0 ? '' : e.target.valu)}
+                                                            onKeyUp={(e: any) => onChange(e.target.value === 0 ? '' : e.target.value)}
                                                             onClick={e => e.stopPropagation()}
                                                             placeholder='Min Price (Rs.)'
                                                             fontSize={14}

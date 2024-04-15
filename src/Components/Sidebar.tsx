@@ -8,6 +8,7 @@ import MultiSelect from "./MultiSelect";
 
 export default function Sidebar({ control, watch, handleSubmit, totalFilter }: any) {
     const { data: categories } = useSWR('/categories?response=api', fetcher)
+
     return (
         <>
             <Popover>

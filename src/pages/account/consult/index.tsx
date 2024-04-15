@@ -106,7 +106,7 @@ export default function Consult() {
                             }
 
                             {
-                                !data ? <tr><td className="px-5 py-3 text-center" colSpan={6}> <Spinner /> </td></tr> :
+                                !data ? <tr><td className="px-5 py-3 text-center" colSpan={7}> <Spinner /> </td></tr> :
                                     <>
                                         {
                                             data?.data?.map((res: any, key: number) => (
