@@ -720,7 +720,7 @@ function Homepage() {
                         <div className="flex transition transition duration-500 ease-in-out items-center gap-x-4 shadow-sm p-3 bg-gray-100 hover:bg-blue-200 rounded-2xl">
                           <Image objectFit={"contain"} className="w-16 h-16 rounded-2xl" src={storageUrl + res?.avatar?.url} alt="" />
                           <div>
-                            <h3 className="text-base font-semibold leading-5 tracking-tight text-gray-900">{res?.company || (res?.first_name + ' ' + res?.last_name)}</h3>
+                            <h3 className="text-base font-semibold leading-5 tracking-tight text-gray-900 text-[15px]">{res?.company || (res?.first_name + ' ' + res?.last_name)}</h3>
                             <p className="text-sm font-semibold leading-6 text-indigo-600">{res?.properties_count} properties</p>
                           </div>
 
