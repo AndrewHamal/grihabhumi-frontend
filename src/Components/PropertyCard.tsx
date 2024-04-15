@@ -98,7 +98,7 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
                                 {res?.author?.avatar?.url && <Image src={storageUrl + res?.author?.avatar?.url} alt="" objectFit={"contain"} className="rounded-full w-[38px] h-[38px] object-contain" />}
                                 <div className="avz awo">
                                     <Text noOfLines={1} className="leading-[17px] font-[600]">
-                                        <span className="text-[#464646] text-[14px]">{res?.investor?.name || (res?.author?.company)}</span>
+                                        <span className="text-[#464646] text-[13px]">{res?.investor?.name || (res?.author?.company)}</span>
                                     </Text>
                                     <p className="text-blue-500 leading-[17px] underline text-[12px] font-[500]">{res?.investor?.projects_count || res?.author?.property_count} Properties</p>
                                 </div>
