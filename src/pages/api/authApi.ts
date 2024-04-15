@@ -1,5 +1,5 @@
 import { deleteCookie } from "cookies-next";
-import axiosInstance from "../@core/services/axiosInstance";
+import axiosInstance from "../../@core/services/axiosInstance";
 
 export function user() {
     return axiosInstance.get('/user')

@@ -28,7 +28,7 @@ axiosInstance.interceptors.response.use(
     async (error) => {
         if (error?.response?.status === 401) {
             deleteCookie('token');
-            await fetch("/api/logout", { method: "POST" });
+            // await fetch("/api/logout", { method: "POST" });
             window.location.href = "/";
         }
 
