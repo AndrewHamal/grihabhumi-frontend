@@ -6,7 +6,7 @@ import axios from "axios"
 import dayjs from "dayjs"
 import Link from "next/link"
 import useSWR from "swr"
-import { MdArrowForward, MdCalendarMonth, MdEmail, MdPhone } from "react-icons/md"
+import { MdArrowForward, MdCalendarMonth, MdEmail, MdPhone, MdWarning } from "react-icons/md"
 import { fetcher } from "../api/api"
 import { useRouter } from "next/router"
 import { Fragment, useState } from "react"
@@ -42,7 +42,7 @@ export default function Agency({ data }: any) {
             <div className="bg-gradient border-t">
                 <div className="container px-4 mx-auto py-11 ">
                     <div className="flex items-center gap-3">
-                        <Avatar src={storageUrl + data?.avatar?.url} size={"xl"} name={data?.first_name + ' ' + data?.last_name} />
+                        <Avatar src={storageUrl + data?.avatar?.url} size={"xl"} objectFit={"contain"} name={data?.first_name + ' ' + data?.last_name} />
 
                         <div>
                             <p className="font-[500] mb-1 text-xl">{data?.first_name} {data?.last_name}</p>
@@ -99,6 +99,10 @@ export default function Agency({ data }: any) {
                                 ))
                             }
                         </div>
+
+                        {
+                            agencies?.data?.data?.length == 0 && <p className="font-[500] bg-white px-5 rounded-[8px] flex items-center gap-1 py-3 text-[15px]"><MdWarning /> No Properties Found!</p>
+                        }
 
                         {agencies?.data?.last_page > 1 && <nav aria-label="Page navigation example" className="flex">
                             <ul className="inline-flex -space-x-px text-sm overflow-x-scroll py-4 pr-4">

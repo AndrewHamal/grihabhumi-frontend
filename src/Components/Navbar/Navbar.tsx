@@ -272,7 +272,7 @@ function Navbar() {
                     }
                 </div>
 
-                <Flex id="group-right-nav" gap={5}>
+                <Flex id="group-right-nav" gap={4}>
 
                     <Link href="/search">
                         <Flex id="tabs-1-tab-1" fontWeight={pathname == '/search' ? 500 : 400} color={colorChange ? '#555' : ''} className={style.payRent}>

@@ -32,6 +32,35 @@ html {
   scroll-behavior: smooth;
 }
 
+.floating-whatsapp-chatbox img {
+  object-fit: contain;
+  background: #000;
+  padding: 4px;
+}
+
+.floating-whatsapp-chatbox form input {
+  padding: 15px;
+  font-size: 14px;
+}
+
+.styles-module_chatHeader__gaeOA .styles-module_avatar__afcc4:after {
+  bottom: 8px !important;
+  right: 14px !important;
+}
+
+.floating-whatsapp-chatbox form {
+  padding: 0.5rem;
+}
+
+.floating-whatsapp-chatbox form button {
+  margin-left: 0.7rem;
+}
+
+
+.floating-whatsapp-chatbox form {
+  padding: 0.5rem;
+}
+
 .edit .col-span-2>div,
 .edit .self-baseline>div {
   background: #fff !important;

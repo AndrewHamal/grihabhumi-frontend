@@ -149,7 +149,7 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                                         </div>
 
                                         <div className='py-5'>
-                                            <Checkbox value={1} onChange={e => setChecked(e.target.checked)}>
+                                            <Checkbox value={1} onChange={(e: any) => setChecked(e.target.checked)}>
                                                 I am a landlord or industry professional
                                             </Checkbox>
                                         </div>

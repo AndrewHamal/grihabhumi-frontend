@@ -200,8 +200,6 @@ function Homepage() {
         <meta property="og:title" content="Home - grihabhumi" />
         <meta property="og:description" content="Nepal best property listing site. Real estate in nepal." />
         <meta property="og:image" content="/assets/logo.svg" />
-
-
       </Head>
 
       <Navbar />
@@ -286,7 +284,7 @@ function Homepage() {
                     name="type"
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                      <Link onClick={() => onChange('Sale')} href={'?type=sale'}>
+                      <Link onClick={() => onChange('sale')} href={'?type=sale'}>
                         <Box
                           style={
                             query?.type === "sale"
@@ -305,7 +303,7 @@ function Homepage() {
                     name="type"
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                      <Link onClick={() => onChange('Rent')} href={'?type=rent'}>
+                      <Link onClick={() => onChange('rent')} href={'?type=rent'}>
                         <Box
                           style={
                             query?.type === "rent"
@@ -422,21 +420,21 @@ function Homepage() {
             <Text>
               Didn't you find the property of your <Text as="b">choice? </Text> Tell us what you need and we will guide you <Text as="b">find the best property. </Text>
             </Text>
-            <a
-              href="https://www.nabilbank.com/business/loan-eligibility"
-              target="_blank" rel="noreferrer"
+            <Button
+              color="#464646"
+              bgColor="#fff"
+              fontSize="12px"
+              p="4px 8px"
+              h="fit-content"
+              borderRadius="4px"
+              onClick={() => {
+                let ele: any = document.querySelector('.floating-whatsapp-button');
+                console.log(ele)
+                ele.click()
+              }}
             >
-              <Button
-                color="#464646"
-                bgColor="#fff"
-                fontSize="12px"
-                p="4px 8px"
-                h="fit-content"
-                borderRadius="4px"
-              >
-                Request Property
-              </Button>
-            </a>
+              Request Property
+            </Button>
           </Flex>
         </div>
 
@@ -763,10 +761,12 @@ function Homepage() {
                         <Text className="text-gray-500 text-[14px] mt-1">Select from thousands of options, without brokerage.</Text>
                       </div>
 
-                      <button className={`ml-auto text-left flex items-center font-[400] gap-2 bg-blue-100 text-[14px] rounded-[6px] ${isMobile ? "px-2 py-2" : "px-4 py-[6px]"} text-blue-400 text-[14px]`}>
-                        {!isMobile && <Text color="" p="0" m="0">Explore Now</Text>}
-                        <MdArrowForward width={5} height={5} />
-                      </button>
+                      <Link href={"/account/properties/create"} className="ml-auto">
+                        <button className={`text-left flex items-center font-[400] gap-2 bg-blue-100 text-[14px] rounded-[6px] ${isMobile ? "px-2 py-2" : "px-4 py-[6px]"} text-blue-400 text-[14px]`}>
+                          {!isMobile && <Text color="" p="0" m="0">Explore Now</Text>}
+                          <MdArrowForward width={5} height={5} />
+                        </button>
+                      </Link>
 
                     </Box>
                   </div>
