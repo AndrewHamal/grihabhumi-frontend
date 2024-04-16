@@ -4,8 +4,10 @@ import { MdApartment, MdEmail, MdKey, MdLocationCity, MdMap, MdPerson, MdPhone }
 import { login, register } from '@/pages/api/api';
 import { setCookie } from 'cookies-next'
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 export default function SignUp({ isOpen, onClose, popTab }: any) {
+    const router = useRouter()
     const [show, setShow] = useState(false)
     const [error, setError]: any = useState(null)
     const handleClick = () => setShow(!show)
@@ -23,7 +25,7 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                 setCookie('token', data?.data?.token)
                 onClose()
                 toast.success(data?.message)
-
+                router.push('/dashboard')
             }).catch(err => {
                 setSubmitting(false)
                 setError(err.response?.data?.message)
@@ -41,6 +43,7 @@ export default function SignUp({ isOpen, onClose, popTab }: any) {
                 setCookie('token', data?.data?.token)
                 onClose()
                 toast.success(data?.message)
+                router.push('/dashboard')
             }).catch(err => {
                 setSubmitting(false)
                 if (err.response?.data?.errors) {
