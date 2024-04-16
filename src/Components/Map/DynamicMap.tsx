@@ -54,6 +54,7 @@ const Map = ({ children, className, width, height, ...rest }: any) => {
                   <PopoverArrow />
                   <PropertyCard
                     res={res}
+                    isHf={true}
                     isProperty={true}
                   />
                 </PopoverContent>

@@ -16,7 +16,7 @@ import { debounce, isArray } from "lodash";
 import Link from "next/link";
 import SearchModal from "@/Components/SearchModal";
 import numDifferentiation, { conditionList, paramValue } from "@/Constant/helper";
-import { MdApartment, MdAppRegistration, MdDashboardCustomize, MdFilter, MdFilter1, MdFilter2, MdHomeWork, MdListAlt, MdLogin, MdMap, MdPhoneForwarded, MdPostAdd, MdWork } from "react-icons/md";
+import { MdApartment, MdAppRegistration, MdDashboardCustomize, MdFilter, MdFilter1, MdFilter2, MdFormatPaint, MdHomeWork, MdListAlt, MdLogin, MdMap, MdPhoneForwarded, MdPostAdd, MdWork } from "react-icons/md";
 import PropertyCard from "@/Components/PropertyCard";
 import SignUp from "@/Components/SignUp";
 import { fetcherAuth } from "../api/authApi";
@@ -261,8 +261,15 @@ function Search() {
                             </Link>
                         </div>
                         <div className="border-b py-3 px-5">
-                            <Link href="/services" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
+                            <Link href="/search" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
                                 <MdHomeWork className="mb-[2px]" size={20} />
+                                Find Properties
+                            </Link>
+                        </div>
+
+                        <div className="border-b py-3 px-5">
+                            <Link href="/services" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
+                                <MdFormatPaint className="mb-[2px]" size={20} />
                                 Find Services
                             </Link>
                         </div>
@@ -648,12 +655,10 @@ function Search() {
                         <Spinner size={'xs'} /> Fetching...
                     </div>}
                 </div>
-
             </>
 
-
             <div className={`${isMobile ? "pt-[97px]" : ""} bg-[#f8fafd] search-page`}>
-                <div className={`${!isMobile ? 'flex' : ''} relative w-[100%] bg-white`}>
+                <div className={`${!isMobile ? 'flex' : ''} relative w-[100%] bg-white z-[0]`}>
                     {(!isMobile || tab == '' || tab == '2') &&
                         <div className={!isMobile ? "w-[49%]" : ''}>
                             <div className={isMobile ? "" : "fixed w-[49%] top-[116px] bottom-0"}>
@@ -731,7 +736,7 @@ function Search() {
             </div>
 
             {
-                isMobile && <div className="fixed bottom-[20px] left-[50%] translate-x-[-50%]">
+                isMobile && <div className="fixed z-[9999] bottom-[20px] left-[50%] translate-x-[-50%]">
                     <button onClick={() => setTab((tab == '' || tab == '1') ? '2' : '1')} className="shadow-lg btn-primary flex items-center gap-1">
                         {(tab == '' || tab == '1') ? <> <MdMap /> Map </> : <> <MdListAlt /> List </>}
                     </button>

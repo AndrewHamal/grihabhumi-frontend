@@ -217,7 +217,7 @@ function Homepage() {
               name="type"
               control={control}
               render={({ field: { onChange, value } }) => (
-                <Link onClick={() => onChange('Sale')} href="?type=sale">
+                <Link onClick={() => { onChange('Sale'); onOpen() }} href="?type=sale">
                   <Box className="text-center" fontWeight={query?.type === "sale" ? 500 : 400} color={query?.type === "sale" ? '#0E578C' : '#00000073'}>
                     Buy
                   </Box>
@@ -233,7 +233,7 @@ function Homepage() {
               name="type"
               control={control}
               render={({ field: { onChange, value } }) => (
-                <Link onClick={() => onChange('Rent')} href="?type=rent">
+                <Link onClick={() => { onChange('Rent'); onOpen() }} href="?type=rent">
                   <Box className="text-center" fontWeight={query?.type === "rent" ? 500 : 400} color={query?.type === "rent" ? '#0E578C' : '#00000073'}>
                     Rent
                   </Box>

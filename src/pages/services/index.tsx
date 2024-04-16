@@ -123,7 +123,7 @@ export default function Services({ services: lists, servicesList }: any) {
 
                                                 <CardFooter>
                                                     <Link className="flex gap-1 items-center" href={`tel:+977${res?.phone}`}>
-                                                        <Button variant='solid' size={"sm"} fontWeight={500} fontSize={13} colorScheme='blue'>
+                                                        <Button variant='solid' size={"sm"} fontWeight={500} fontSize={14} colorScheme='blue'>
                                                             <MdPhoneForwarded className="mr-1" /> Call Now
                                                         </Button>
                                                     </Link>

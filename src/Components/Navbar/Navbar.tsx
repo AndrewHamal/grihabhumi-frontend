@@ -29,7 +29,7 @@ import { GrDocumentText, GrHome, GrList, GrMultiple } from "react-icons/gr";
 import SignUp from "../SignUp";
 import { fetcherAuth, logout } from "@/pages/api/authApi";
 import { getCookie } from "cookies-next";
-import { MdApartment, MdAppRegistration, MdChevronRight, MdHome, MdHomeWork, MdList, MdLogin, MdLogout, MdMan4, MdPhoneForwarded, MdPlusOne, MdPostAdd, MdSearch, MdWork } from "react-icons/md";
+import { MdApartment, MdAppRegistration, MdChevronRight, MdFormatPaint, MdHome, MdHomeWork, MdHouse, MdList, MdLogin, MdLogout, MdMan4, MdPhoneForwarded, MdPlusOne, MdPostAdd, MdSearch, MdWork } from "react-icons/md";
 import Logo from "../Logo";
 
 
@@ -186,8 +186,15 @@ function Navbar() {
                             </Link>
                         </div>
                         <div className="border-b py-3 px-5">
-                            <Link href="/services" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
+                            <Link href="/search" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
                                 <MdHomeWork className="mb-[2px]" size={20} />
+                                Find Properties
+                            </Link>
+                        </div>
+
+                        <div className="border-b py-3 px-5">
+                            <Link href="/services" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
+                                <MdFormatPaint className="mb-[2px]" size={20} />
                                 Find Services
                             </Link>
                         </div>

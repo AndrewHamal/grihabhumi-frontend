@@ -22,6 +22,7 @@ import useSWR from 'swr'
 import numDifferentiation, { availabilityList, bhkList, conditionList, furnishingList, houseList } from "@/Constant/helper";
 import { usePathname } from "next/navigation";
 import MultiSelect from "../MultiSelect";
+import Logo from "../Logo";
 
 export default function SearchModal({ isOpen, onClose, handleSubmit, control, watch = () => { } }: any) {
     const finalRef = React.useRef(null)
@@ -39,7 +40,7 @@ export default function SearchModal({ isOpen, onClose, handleSubmit, control, wa
                     <ChevronLeftIcon fontSize={24} onClick={onClose} />
 
                     <Link href="/">
-                        <Image src={'/Images/navbar/logo.png'} width={"60px"} alt="Dan Abramov" className={style.logo} />
+                        <Logo />
                     </Link>
                 </ModalHeader>
 
