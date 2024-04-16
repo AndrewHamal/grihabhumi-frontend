@@ -1,7 +1,7 @@
 import Footer from "@/Components/Footer/Footer"
 import Navbar from "@/Components/Navbar/Navbar"
 import { apiURL, storageUrl } from "@/Constant/helper"
-import { Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Tooltip } from "@chakra-ui/react"
+import { Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Tab, TabList, Tabs, Tooltip } from "@chakra-ui/react"
 import axios from "axios"
 import dayjs from "dayjs"
 import Link from "next/link"
@@ -9,7 +9,7 @@ import useSWR from "swr"
 import { MdArrowForward, MdCalendarMonth, MdEmail, MdPhone, MdWarning } from "react-icons/md"
 import { fetcher } from "../api/api"
 import { useRouter } from "next/router"
-import { Fragment, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import PropertyCard from "@/Components/PropertyCard"
 
 export default function Agency({ data }: any) {
@@ -17,6 +17,13 @@ export default function Agency({ data }: any) {
     const [page, setPage] = useState(1)
 
     const { data: agencies } = useSWR(query?.id ? `/agencies/${query?.id}?type=property&page=${page}` : null, fetcher)
+    const [properties, setProperties] = useState([])
+
+    useEffect(() => {
+        if (agencies) {
+            setProperties(agencies?.data?.data)
+        }
+    }, [agencies])
 
     return (
         <>
@@ -86,9 +93,24 @@ export default function Agency({ data }: any) {
                         <h5 className="mb-5 font-[500] text-[#696cff] text-[16px] flex gap-1 items-center">Properties From this agent
                             <MdArrowForward />
                         </h5>
+
+                        <Tabs className="mb-8">
+                            <TabList gap={5}>
+                                <Tab padding={0} onClick={() => {
+                                    setProperties(agencies?.data?.data)
+                                }}>All</Tab>
+                                <Tab padding={0} onClick={() => {
+                                    setProperties(agencies?.data?.data?.filter((res: any) => res.type == 'sale'))
+                                }}>For Sale</Tab>
+                                <Tab padding={0} onClick={() => {
+                                    setProperties(agencies?.data?.data?.filter((res: any) => res.type == 'rent'))
+                                }}>For Rent</Tab>
+                            </TabList>
+                        </Tabs>
+
                         <div className="grid grid-cols-4 gap-5">
                             {
-                                agencies?.data?.data?.map((res: any, key: number) => (
+                                properties?.map((res: any, key: number) => (
                                     <Fragment key={key}>
                                         <PropertyCard
                                             isAgentPage={true}

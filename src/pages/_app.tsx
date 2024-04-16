@@ -6,9 +6,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import { SWRConfig } from "swr";
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return <ChakraProvider>
+    <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KH5XTD4XWQ" />
+    <Script id="gtm" strategy="afterInteractive">
+      {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-KH5XTD4XWQ');
+      `}
+    </Script>
+
     <SWRConfig
       value={{
         revalidateIfStale: false,
