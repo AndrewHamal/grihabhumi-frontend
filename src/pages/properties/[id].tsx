@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import { fetcher, postConsult } from "../api/api";
 import { useParams, usePathname } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useMemo, useRef, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import { MdApartment, MdAttachMoney, MdBathroom, MdBed, MdBedroomBaby, MdBedtime, MdBuild, MdBungalow, MdCalendarMonth, MdCalendarToday, MdCategory, MdCellTower, MdCheckBox, MdEmail, MdHome, MdHouse, MdKey, MdListAlt, MdMoneyOff, MdPanoramaFishEye, MdPhone, MdRealEstateAgent, MdRemoveRedEye, MdSquareFoot } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
@@ -19,10 +19,11 @@ import Link from "next/link";
 import Footer from "@/Components/Footer/Footer";
 import axios from "axios";
 import Head from "next/head";
-import { toast } from "react-toastify";
+import FsLightbox from "fslightbox-react";
 import Consult from "@/Components/Consult";
 
 export default function Property({ prop }: any) {
+    const [toggle, setToggle] = useState(false)
     const settings = {
         dots: true,
         infinite: false,
@@ -55,6 +56,14 @@ export default function Property({ prop }: any) {
         ]
     };
 
+    const imgEle = useMemo(() => {
+        let ele: any = []
+        Object.values(prop?.images || {})?.map(res => (
+            ele.push(<img src={storageUrl + res} />)
+        ))
+
+        return ele
+    }, [])
 
     return (
         <div className="pb-11 property-page">
@@ -89,13 +98,36 @@ export default function Property({ prop }: any) {
 
             <ImageGallery
                 thumbnailPosition={'right'}
-                // showFullscreenButton={false}
+                showFullscreenButton={false}
                 slideOnThumbnailOver={false}
+                onClick={() => setToggle(!toggle)}
                 showPlayButton={false}
                 items={Object.values(prop?.images || {})?.map(res => ({ originalClass: 'property-image', original: (storageUrl + res), thumbnail: (storageUrl + res) }))}
             />
 
-
+            <FsLightbox
+                type="image"
+                toggler={toggle}
+                sources={imgEle}
+                customToolbarButtons={[
+                    {
+                        viewBox: "0 0 16 16",
+                        d: "M0 14h16v2h-16v-2z M8 13l5-5h-3v-8h-4v8h-3z",
+                        width: "16px",
+                        height: "16px",
+                        title: "Download",
+                        onClick: function (instance) {
+                            var URL = instance.props.sources[instance.stageIndexes.current];
+                            var a = document.createElement("a");
+                            a.href = URL;
+                            a.setAttribute("download", "");
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                        }
+                    }
+                ]}
+            />
 
             <div className="bg-[#f7f7f7] sticky top-0 z-[99]">
                 <div className="md:container mx-auto">
@@ -244,8 +276,8 @@ export default function Property({ prop }: any) {
                                 </div>
 
                                 <div className="relative w-[100%]">
+                                    <p className='text-[6px] top-[-10px] w-[100%]'>Ropani-Aana-Paisa-Daam</p>
                                     <p className='text-[14px] font-[600] text-[#464646] leading-4'>{prop?.ropani || 0}-{prop?.aana || 0}-{prop?.paisa || 0}-{prop?.daam || 0}</p>
-                                    <p className='text-[6px] absolute top-[-10px] w-[100%]'>Ropani-Aana-Paisa-Daam</p>
                                     <p className='text-[13px] text-gray-500 capitalize leading-4'>Total Area</p>
                                 </div>
                             </div>}
@@ -366,7 +398,7 @@ export default function Property({ prop }: any) {
                                 />
 
                                 <div className="text-left">
-                                    <p className="text-gray-1100 text-[16px] font-[500]">{prop?.author?.company}</p>
+                                    <p className="text-gray-1100 text-[16px] font-[500]">{prop?.author?.company || prop?.author?.email}</p>
                                     <p className="text-blue-500 text-[14px] underline">{prop?.author?.property_count} properties</p>
                                 </div>
                             </div>
