@@ -246,7 +246,7 @@ function Navbar() {
                         <div className="flex items-center h-[100%]">
                             <Link href="/" className="logo">
                                 <Logo
-                                    type={(['/services', '/news', '/dashboard', '/account/consult', '/account/settings', '/account/properties', '/account/properties/create', `/projects/${query?.id}`, `/properties/${query?.id}`, `/news/${query?.slug}`, `/agencies`, `/agency/${query?.id}`].includes(pathname) && isMobile) ? 'icon' : ''}
+                                    type={(['/services', '/news', '/dashboard', '/account/consult', '/account/settings', '/account/properties', '/account/properties/create', `/projects/${query?.id}`, `/properties/${query?.id}`, `/news/${query?.slug}`, `/agencies`, `/agency/${query?.id}`].includes(decodeURI(pathname)) && isMobile) ? 'icon' : ''}
                                     color={isMobile ? "black" : (colorChange ? "black" : "white")}
                                     className={isMobile ? "h-[43px] w-[150px]" : "w-[155px]"}
                                 />
