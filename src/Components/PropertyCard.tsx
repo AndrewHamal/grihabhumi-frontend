@@ -78,20 +78,20 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
 
                         <div className="pt-1 mt-auto gap-3 items-center">
                             {isProperty && (query.project != 'true') && <div className="mb-[5px] mt-auto flex gap-3 w-[100%]">
-                                <div className="flex items-center gap-1" title="bedroom">
+                                {res?.number_bedroom && <div className="flex items-center gap-1" title="bedroom">
                                     <MdOutlineKingBed size={19} className="mb-[1px] mt-[1px]" />
                                     <p className="text-[13px]">{res?.number_bedroom}</p>
-                                </div>
+                                </div>}
 
-                                <div className="flex items-center gap-1" title="bathroom">
+                                {res?.number_bathroom && <div className="flex items-center gap-1" title="bathroom">
                                     <MdOutlineBathtub className="mb-[1px]" />
                                     <p className="text-[13px]">{res?.number_bathroom}</p>
-                                </div>
+                                </div>}
                                 {/* type */}
-                                <div className="flex items-center gap-1" title="area">
+                                {res?.square && <div className="flex items-center gap-1" title="area">
                                     <MdOutlineSquareFoot className="mb-[1px]" />
                                     <p className="text-[13px]">{res?.square} {res?.area_type}</p>
-                                </div>
+                                </div>}
                             </div>}
 
                             {!isAgentPage && <div className="pt-3 flex gap-3 items-center border-t-[1px] border-[#e2e2e2]">

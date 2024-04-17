@@ -57,9 +57,15 @@ function FooterOptions() {
                                     <li className="mb-4">
                                         <Link href="/agencies" className="hover:underline ">Agencies</Link>
                                     </li>
-                                    <li className="mb-4">
+                                    {/* <li className="mb-4">
                                         <Link href="/about-us" className="hover:underline ">About us</Link>
                                     </li>
+                                    <li className="mb-4">
+                                        <Link href="/faq" className="hover:underline ">FAQ</Link>
+                                    </li>
+                                    <li className="mb-4">
+                                        <Link href="/faq" className="hover:underline ">Terms & conditions</Link>
+                                    </li> */}
                                 </ul>
                             </div>
                         </div>

@@ -266,10 +266,9 @@ function Navbar() {
                                     height={'40px'}
                                     onKeyUp={(e: any) => setKeyword(e.target.value)}
                                 />
-
-                                <button type="submit" onClick={() => router.push('/search?keyword=' + keyword)} className="z-[99] top-[50%] translate-y-[-50%] absolute right-[6px] border-[1px] border-blue-300 text-[13px] px-2 py-1 rounded-[6px]">
+                                {/* <button type="submit" onClick={() => router.push('/search?keyword=' + keyword)} className="z-[99] top-[50%] translate-y-[-50%] absolute right-[6px] border-[1px] border-blue-300 text-[13px] px-2 py-1 rounded-[6px]">
                                     Done
-                                </button>
+                                </button> */}
                             </div>
                         </form>
                     }

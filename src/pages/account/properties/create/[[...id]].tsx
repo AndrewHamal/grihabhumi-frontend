@@ -155,7 +155,7 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
                 toast.success(res?.message)
                 setSubmitting(false)
                 if (type == 'submit')
-                    router.push('/user/properties')
+                    router.push('/account/properties')
                 else {
                     setId(res.data.id)
                 }
@@ -390,12 +390,9 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
 
                                     <div className="flex w-[100%] gap-5">
                                         <div className="mb-4 flex-grow">
-                                            <label className="text-[14px]">Build-up Area  <span className="text-red-500">*</span></label>
+                                            <label className="text-[14px]">Build-up Area </label>
                                             <Controller
                                                 name="square"
-                                                rules={{
-                                                    required: 'Area is required!'
-                                                }}
                                                 control={control}
                                                 render={({ field: { onChange, value } }) => (
                                                     <Input type="number" defaultValue={value} onKeyUp={(e: any) => onChange(e.target.value)} fontSize={14} background={"#fff"} className="mt-1" placeholder="Build up area" />
@@ -406,14 +403,11 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
                                         </div>
 
                                         <div className="mb-4 flex-grow">
-                                            <label className="text-[14px]">Build-up Area Type  <span className="text-red-500">*</span></label>
+                                            <label className="text-[14px]">Build-up Area Type</label>
                                             <div className="pt-1"></div>
                                             <Controller
                                                 name="area_type"
                                                 control={control}
-                                                rules={{
-                                                    required: 'Area type is required!'
-                                                }}
                                                 render={({ field: { onChange, value } }) => (
                                                     <Select onChange={(e) => onChange(e.target.value)} placeholder="Select Type" fontSize={14} background={"#fff"}>
                                                         {[
@@ -485,7 +479,7 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
 
                                     <div className="grid grid-cols-2 gap-5">
                                         <div className="mb-4 flex-grow">
-                                            <label className="text-[14px]">House Type</label>
+                                            <label className="text-[14px]">Property Type</label>
                                             <div className="pt-1"></div>
                                             <Controller
                                                 name="house_type"
@@ -496,6 +490,9 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
                                                             'Individual',
                                                             'Housing',
                                                             'Colony',
+                                                            'Commercial',
+                                                            'Apartment',
+                                                            'Plotting'
                                                         ].map((res, key) => (
                                                             <option selected={value == res} value={res} key={key}>{res}</option>
                                                         ))}
@@ -530,7 +527,7 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
 
                                     <div className="grid grid-cols-2 gap-5">
                                         <div className="mb-4 flex-grow">
-                                            <label className="text-[14px]">Property type (bhk)</label>
+                                            <label className="text-[14px]">House type (bhk)</label>
                                             <div className="pt-1"></div>
                                             <Controller
                                                 name="property_type"
@@ -661,7 +658,7 @@ export default function PropertyCreate({ id: queryId, features, categories }: an
                                             name={`price`}
                                             control={control}
                                             render={({ field: { onChange, value } }) => (
-                                                <Input fontSize={14} type="number" defaultValue={value} onKeyDown={(e: any) => onChange(e.target.value)} bg={"#fff"} placeholder="Price" />
+                                                <Input fontSize={14} type="number" defaultValue={value} onKeyUp={(e: any) => onChange(e.target.value)} bg={"#fff"} placeholder="Price" />
                                             )}
                                         />
                                     </div>

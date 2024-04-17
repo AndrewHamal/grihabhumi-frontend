@@ -31,6 +31,17 @@
   }
 }
 
+@media only screen and (max-width: 390px) {
+  /* .edit.create {
+    width: 130px !important;
+  } */
+
+  .edit.create .container {
+    padding: 0.2rem;
+  }
+}
+
+
 
 .mobile-dashboard ul li a span {
   color: #000;
