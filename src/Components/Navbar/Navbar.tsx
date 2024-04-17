@@ -180,7 +180,7 @@ function Navbar() {
                         </div>}
 
                         <div className="border-b py-3 px-5">
-                            <Link href="/account/properties/create" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
+                            <Link onClick={onDrawerClose} href="/account/properties/create" className="text-[14px] py-1 text-gray-500 font-[500] flex gap-2 items-center">
                                 <MdPostAdd className="mb-[2px]" size={20} />
                                 Post Your Property
                             </Link>
@@ -254,21 +254,24 @@ function Navbar() {
                         </div>
                     </Box>
 
-                    {isMobile && pathname != '/' && <div className="ml-3 relative flex-grow">
-                        <Input
-                            placeholder='Search by Keyword'
-                            fontSize={15}
-                            background={"#fff"}
-                            style={{ borderColor: '#0E578C!important' }}
-                            minW={'100%'}
-                            height={'40px'}
-                            onKeyUp={(e: any) => setKeyword(e.target.value)}
-                        />
+                    {isMobile && pathname != '/' &&
+                        <form className="flex-grow" onSubmit={(e) => { e.preventDefault(); router.push('/search?keyword=' + keyword) }}>
+                            <div className="ml-3 relative flex-grow">
+                                <Input
+                                    placeholder='Search by Keyword'
+                                    fontSize={15}
+                                    background={"#fff"}
+                                    style={{ borderColor: '#0E578C!important' }}
+                                    minW={'100%'}
+                                    height={'40px'}
+                                    onKeyUp={(e: any) => setKeyword(e.target.value)}
+                                />
 
-                        <button onClick={() => router.push('search?keyword=' + keyword)} className="z-[99] top-[50%] translate-y-[-50%] absolute right-[6px] border-[1px] border-blue-300 text-[13px] px-2 py-1 rounded-[6px]">
-                            Done
-                        </button>
-                    </div>
+                                <button type="submit" onClick={() => router.push('/search?keyword=' + keyword)} className="z-[99] top-[50%] translate-y-[-50%] absolute right-[6px] border-[1px] border-blue-300 text-[13px] px-2 py-1 rounded-[6px]">
+                                    Done
+                                </button>
+                            </div>
+                        </form>
                     }
                 </div>
 

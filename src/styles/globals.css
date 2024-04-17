@@ -26,6 +26,13 @@
 }
 
 
+.mobile-dashboard ul li a span {
+  color: #000;
+}
+
+.mobile-dashboard .active span {
+  color: #696cff !important
+}
 
 /* css internal  */
 html {
