@@ -25,6 +25,12 @@
   --chakra-colors-blue-500: #0E578C
 }
 
+@media only screen and (max-width: 379px) {
+  .services>div>div.css-0 {
+    width: 130px !important;
+  }
+}
+
 
 .mobile-dashboard ul li a span {
   color: #000;
