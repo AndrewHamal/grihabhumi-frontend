@@ -203,32 +203,6 @@ function Homepage() {
         <meta property="og:image" content="/assets/logo.svg" />
       </Head>
 
-      <Script type="application/ld+json">
-        {
-          `{ "@context" : "https://schema.org",
-          "@type" : "Organization",
-          "name" : "Grihabhumi.com",
-          "url" : "https://www.grihabhumi.com",
-          "logo": "https://static.realestateindia.com/images/realestateindia-logo.png",
-          "sameAs" : [ "https://twitter.com/propertydir",
-          "https://www.facebook.com/grihabhumi",
-          "https://www.instagram.com/grihabhumi/",
-          "https://www.linkedin.com/company/grihabhumi"],
-          "contactPoint" : [
-          { "@type" : "ContactPoint",
-          "telephone" : "+977-11-45679601",
-          "areaServed" : "NP"
-          } , {
-          "@type" : "ContactPoint",
-          "telephone" : "+91-11-45679601",
-          "contactType" : "Customer Support",
-          "areaServed" : ["International"],
-          "availableLanguage" : ["English"]
-          } ] }
-          `
-        }
-      </Script>
-
       <Navbar />
       {/* mobile hero  */}
       <Box className="mobile-ver hidden relative pt-[60px] pb-11 px-5">
