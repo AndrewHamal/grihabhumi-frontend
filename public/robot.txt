@@ -1,0 +1,7 @@
+#Robots.txt for grihabhumi.com
+User-agent: *
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /account/properties/create
+
+Sitemap: https://www.grihabhumi.com/sitemap.xml
