@@ -1,6 +1,6 @@
 import Navbar from "@/Components/Navbar/Navbar";
-import { Avatar, Badge, Box, Button, Checkbox, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, IconButton, Image, Input, Menu, MenuButton, MenuDivider, MenuItem, MenuList, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Select, Skeleton, SkeletonCircle, SkeletonText, Spinner, Tab, TabList, Tabs, Text, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import React, { Fragment, useCallback, useEffect, useMemo, useState } from "react"
+import { Avatar, Badge, Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, IconButton, Image, Input, Menu, MenuButton, MenuDivider, MenuItem, MenuList, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Select, Skeleton, SkeletonCircle, SkeletonText, Spinner, Tab, TabList, Tabs, Text, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import React, { Fragment, useCallback, useEffect, useState } from "react"
 import { Controller, useForm, useWatch } from "react-hook-form";
 import { fetcher } from "../api/api";
 import useSWR from 'swr'
@@ -16,7 +16,7 @@ import { debounce, isArray } from "lodash";
 import Link from "next/link";
 import SearchModal from "@/Components/SearchModal";
 import numDifferentiation, { conditionList, paramValue } from "@/Constant/helper";
-import { MdApartment, MdAppRegistration, MdDashboardCustomize, MdFilter, MdFilter1, MdFilter2, MdFormatPaint, MdHomeWork, MdListAlt, MdLogin, MdMap, MdPhoneForwarded, MdPostAdd, MdWork } from "react-icons/md";
+import { MdApartment, MdAppRegistration, MdDashboardCustomize, MdFormatPaint, MdHomeWork, MdListAlt, MdLogin, MdMap, MdPhoneForwarded, MdPostAdd, MdWork } from "react-icons/md";
 import PropertyCard from "@/Components/PropertyCard";
 import SignUp from "@/Components/SignUp";
 import { fetcherAuth } from "../api/authApi";

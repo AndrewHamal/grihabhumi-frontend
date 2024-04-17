@@ -1,17 +1,78 @@
 import numDifferentiation, { storageUrl } from "@/Constant/helper";
-import { Image, Text } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { IconButton, Image, Text } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdCameraAlt, MdOutlineBathtub, MdOutlineKingBed, MdOutlineSquareFoot } from "react-icons/md";
+import Slider from "react-slick";
 
 export default function PropertyCard({ isMobile = false, res, className, isProperty = false, wrapperClass = '', hideType = false, isAgentPage = false, isHf = false }: any) {
     const { query } = useRouter()
+    let slickRef1: any = useRef()
+    const [first, setFirst] = useState(false)
+    const [second, setSecond] = useState(true)
 
+    useEffect(() => {
+        if (Object.values(res?.images || {}).length == 1) {
+            setFirst(false)
+            setSecond(false)
+        }
+    }, [Object.values(res?.images || {})])
+
+    const renderArrows = () => {
+        return (
+            <>
+                {first && <IconButton
+                    position={'absolute'}
+                    size={'sm'}
+                    opacity={0.7}
+                    className="top-[50%] translate-y-[-50%] left-2 z-[9999]"
+                    icon={<ChevronLeftIcon w={6} h={6} className="arrow-btn prev" />}
+                    onClick={(e) => { e.preventDefault(); slickRef1.slickPrev() }}
+                    aria-label={""} />}
+
+                {second && <IconButton
+                    position={'absolute'}
+                    size={'sm'}
+                    opacity={0.7}
+                    className="top-[50%] translate-y-[-50%] right-2 z-[9999]"
+                    icon={<ChevronRightIcon w={6} h={6} className="arrow-btn prev" />}
+                    onClick={(e) => { e.preventDefault(); slickRef1.slickNext() }}
+                    aria-label={""} />}
+            </>
+        );
+    };
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        arrows: false,
+        beforeChange: (oldIndex: any, newIndex: any) => {
+            if (newIndex == 0) {
+                setFirst(false)
+                setSecond(true)
+            }
+
+            if (newIndex != 0 && newIndex != (Object.values(res?.images || {}).length - 1)) {
+                setFirst(true)
+                setSecond(true)
+            }
+
+            if (newIndex == (Object.values(res?.images || {}).length - 1)) {
+                setFirst(true)
+                setSecond(false)
+            }
+
+        }
+    };
     return (
-        <Link href={`/${res?.slugable?.prefix}/${res?.slugable?.key}`}>
+        <Link passHref href={`/${res?.slugable?.prefix}/${res?.slugable?.key}`}>
             <div className={`${!isProperty ? 'p-3' : ''} property-card ${wrapperClass ? wrapperClass : ''}`}>
                 <div className={`relative bg-white h-[100%] ${isProperty ? 'shadow-sm' : ''}  h-[100%] rounded-[12px] overflow-hidden ` + (className ? className : '')}>
                     <div className="relative overflow-hidden">
@@ -21,7 +82,24 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
                                 {Object.values(res?.images || {})?.length}
                             </p>
                         </div>}
-                        <Image src={res?.images_full_url} fit={"cover"} width={"100%"} height={"200px"} objectFit={"cover"} />
+
+                        <div className="relative">
+
+                            <Slider
+                                ref={(e: any) => slickRef1 = e}
+                                {...settings}>
+
+                                {Object.values(res?.images || {})?.map((res: any, key: number) => (
+                                    <Fragment key={key}>
+                                        <Image src={storageUrl + res} width={"100%"} height={"200px"} objectFit={"cover"} />
+                                    </Fragment>
+                                ))
+                                }
+                            </Slider>
+
+                            {renderArrows()}
+                        </div>
+                        {/* <Image src={res?.images_full_url} fit={"cover"} width={"100%"} height={"200px"} objectFit={"cover"} /> */}
 
                         <div className="flex gap-2 absolute bottom-0 mx-3 mb-3">
                             {isProperty && <div className="bg-blue-500 text-white text-[13px] px-2 py-[1px] rounded-[10px]">

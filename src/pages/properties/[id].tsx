@@ -23,8 +23,6 @@ import { toast } from "react-toastify";
 import Consult from "@/Components/Consult";
 
 export default function Property({ prop }: any) {
-    let slickRef: any = useRef()
-
     const settings = {
         dots: true,
         infinite: false,
@@ -91,11 +89,13 @@ export default function Property({ prop }: any) {
 
             <ImageGallery
                 thumbnailPosition={'right'}
-                showFullscreenButton={false}
+                // showFullscreenButton={false}
                 slideOnThumbnailOver={false}
                 showPlayButton={false}
                 items={Object.values(prop?.images || {})?.map(res => ({ originalClass: 'property-image', original: (storageUrl + res), thumbnail: (storageUrl + res) }))}
             />
+
+
 
             <div className="bg-[#f7f7f7] sticky top-0 z-[99]">
                 <div className="md:container mx-auto">

@@ -20,6 +20,10 @@
   }
 }
 
+.slick-track {
+  display: flex;
+}
+
 * {
   /* --chakra-colors-chakra-border-color: #EBEFF4 */
   --chakra-colors-blue-500: #0E578C
