@@ -189,9 +189,9 @@ export default function Property({ prop }: any) {
                             </div> */}
                         </div>
 
-                        <div className="flex justify-between items-center pt-5">
-                            <h2 className="text-3xl font-[600] text-[#171717]">{prop?.name}</h2>
-                            <p className="text-[18px] text-blue-500 font-[500] w-[290px] text-right">{!prop?.price_from ? 'Price on call' : `Rs. ${numDifferentiation(prop?.price_from)} - ${numDifferentiation(prop?.price_to)}`} </p>
+                        <div className="flex justify-between items-center pt-5 price-name">
+                            <h2 className="text-3xl font-[600] text-[#171717] flex-grow">{prop?.name}</h2>
+                            <p className="text-[18px] text-blue-500 font-[500] flex-grow w-[290px] text-right">{!prop?.price_from ? 'Price on call' : `Rs. ${numDifferentiation(prop?.price_from)} - ${numDifferentiation(prop?.price_to)}`} </p>
                         </div>
 
                         <div className="flex items-center mt-1 gap-1">

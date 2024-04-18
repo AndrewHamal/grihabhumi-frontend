@@ -33,6 +33,10 @@
   .services>div>div.css-0 {
     width: 130px !important;
   }
+
+  .nav-switch p {
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 390px) {
@@ -606,7 +610,7 @@ select:focus-visible {
   }
 
   .prop-search {
-    background-position: 281px -230px;
+    background-position: 279px -230px;
     background-size: 299px;
   }
 
@@ -828,7 +832,7 @@ select:focus-visible {
   }
 
   .dashboard .container {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .container {
@@ -992,12 +996,16 @@ select:focus-visible {
   }
 
   .md\:container:not(.search) {
-    padding: 1.5rem 1rem;
+    padding: 0.5rem;
   }
 
   .text-3xl {
     font-size: 1.1rem;
     line-height: 20px;
+  }
+
+  .price-name p {
+    font-size: 14px;
   }
 
   .search-page .md\:container>div {

@@ -6,7 +6,7 @@ import { useParams, usePathname } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Fragment, useMemo, useRef, useState } from "react";
 import ImageGallery from "react-image-gallery";
-import { MdApartment, MdAttachMoney, MdBathroom, MdBed, MdBedroomBaby, MdBedtime, MdBuild, MdBungalow, MdCalendarMonth, MdCalendarToday, MdCategory, MdCellTower, MdCheckBox, MdEmail, MdHome, MdHouse, MdKey, MdListAlt, MdMoneyOff, MdPanoramaFishEye, MdPhone, MdRealEstateAgent, MdRemoveRedEye, MdSquareFoot } from "react-icons/md";
+import { MdApartment, MdAttachMoney, MdBathroom, MdBed, MdBedroomBaby, MdBedtime, MdBuild, MdBungalow, MdCalendarMonth, MdCalendarToday, MdCategory, MdCellTower, MdCheckBox, MdEmail, MdHome, MdHouse, MdKey, MdListAlt, MdMoneyOff, MdPanoramaFishEye, MdPayment, MdPayments, MdPhone, MdRealEstateAgent, MdRemoveRedEye, MdSquareFoot } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import dayjs from "dayjs";
 import { Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Input, Tab, TabIndicator, TabList, Tabs, Textarea, useMediaQuery } from "@chakra-ui/react";
@@ -197,9 +197,9 @@ export default function Property({ prop }: any) {
                             </div> */}
                         </div>
 
-                        <div className="flex justify-between items-center">
-                            <h2 className="text-3xl font-[600] text-[#171717]">{prop?.name}</h2>
-                            <p className="text-[18px] text-blue-500 font-[500] w-[200px] text-right">Rs. {numDifferentiation(prop?.price)}</p>
+                        <div className="flex justify-between items-center price-name">
+                            <h2 className="text-3xl font-[600] text-[#171717] flex-grow">{prop?.name}</h2>
+                            <p className="text-[18px] text-blue-500 font-[500] w-[200px] text-right flex-grow">Rs. {numDifferentiation(prop?.price)}</p>
                         </div>
 
                         <div className="flex items-center mt-1 gap-1">
@@ -222,7 +222,7 @@ export default function Property({ prop }: any) {
 
                             {prop?.negotiable && <div className='flex border rounded-[6px] px-4 items-center py-4 gap-3'>
                                 <div>
-                                    <MdAttachMoney color='#0E578C' className='text-[#464646]' size={30} />
+                                    <MdPayments color='#0E578C' className='text-[#464646]' size={30} />
                                 </div>
 
                                 <div>
