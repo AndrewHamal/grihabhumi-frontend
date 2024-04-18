@@ -6,7 +6,7 @@ import { useParams, usePathname } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Fragment, useMemo, useRef, useState } from "react";
 import ImageGallery from "react-image-gallery";
-import { MdApartment, MdAttachMoney, MdBathroom, MdBed, MdBedroomBaby, MdBedtime, MdBuild, MdBungalow, MdCalendarMonth, MdCalendarToday, MdCategory, MdCellTower, MdCheckBox, MdEmail, MdHome, MdHouse, MdKey, MdListAlt, MdMoneyOff, MdPanoramaFishEye, MdPayment, MdPayments, MdPhone, MdRealEstateAgent, MdRemoveRedEye, MdSquareFoot } from "react-icons/md";
+import { MdApartment, MdAttachMoney, MdBathroom, MdBed, MdBedroomBaby, MdBedtime, MdBuild, MdBungalow, MdCalculate, MdCalendarMonth, MdCalendarToday, MdCategory, MdCellTower, MdCheckBox, MdEmail, MdHome, MdHouse, MdKey, MdListAlt, MdMoneyOff, MdPanoramaFishEye, MdPayment, MdPayments, MdPhone, MdRealEstateAgent, MdRemoveRedEye, MdSquareFoot } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import dayjs from "dayjs";
 import { Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Input, Tab, TabIndicator, TabList, Tabs, Textarea, useMediaQuery } from "@chakra-ui/react";
@@ -208,6 +208,14 @@ export default function Property({ prop }: any) {
                         </div>
 
                         <div className="mt-4 grid grid-cols-4 gap-4">
+                            <div className="my-auto h-[100%]">
+                                <Link target="_blank" href={'https://everestbankltd.com/emi-calculator/'} className="block h-[100%]">
+                                    <Button colorScheme="blue" w={"100%"} h={"100%"} className="h-[100%]" fontWeight={400} fontSize={14}>
+                                        <MdCalculate size={20} />
+                                        EMI Calculator
+                                    </Button>
+                                </Link>
+                            </div>
 
                             {prop?.condition && <div className='flex border rounded-[6px] px-4 items-center py-4 gap-3'>
                                 <div>
