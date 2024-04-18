@@ -9,7 +9,7 @@ import ImageGallery from "react-image-gallery";
 import { MdApartment, MdAttachMoney, MdBathroom, MdBed, MdBedroomBaby, MdBedtime, MdBuild, MdBungalow, MdCalendarMonth, MdCalendarToday, MdCategory, MdCellTower, MdCheckBox, MdEmail, MdHome, MdHouse, MdKey, MdListAlt, MdMoneyOff, MdPanoramaFishEye, MdPhone, MdRealEstateAgent, MdRemoveRedEye, MdSquareFoot } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import dayjs from "dayjs";
-import { Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Input, Tab, TabIndicator, TabList, Tabs, Textarea } from "@chakra-ui/react";
+import { Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Input, Tab, TabIndicator, TabList, Tabs, Textarea, useMediaQuery } from "@chakra-ui/react";
 import { BsEye } from "react-icons/bs";
 import PropertyCard from "@/Components/PropertyCard";
 import Slider from "react-slick";
@@ -23,6 +23,7 @@ import FsLightbox from "fslightbox-react";
 import Consult from "@/Components/Consult";
 
 export default function Property({ prop }: any) {
+    let slickRef = useRef()
     const [toggle, setToggle] = useState(false)
     const settings = {
         dots: true,
@@ -64,6 +65,10 @@ export default function Property({ prop }: any) {
 
         return ele
     }, [])
+
+
+    const [isMobile] = useMediaQuery(`(max-width: 808px)`);
+    const [isSmMobile] = useMediaQuery(`(max-width: 467px)`);
 
     return (
         <div className="pb-11 property-page">
@@ -441,7 +446,7 @@ export default function Property({ prop }: any) {
                 {prop?.related_properties.length > 0 && <div className="mt-[90px]">
                     <h4 className="font-[500] text-[20px] text-gray-600">Related Properties</h4>
 
-                    {prop?.related_properties?.length > 4 ?
+                    {(prop?.related_properties?.length > 4 || isMobile) ?
                         <div className="mx-[-11px] mt-4">
                             <Slider
                                 ref={(e: any) => slickRef = e}

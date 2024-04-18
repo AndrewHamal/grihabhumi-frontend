@@ -29,7 +29,7 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
                     position={'absolute'}
                     size={'sm'}
                     opacity={0.7}
-                    className="top-[50%] translate-y-[-50%] left-2 z-[9999]"
+                    className="top-[50%] translate-y-[-50%] left-2"
                     icon={<ChevronLeftIcon w={6} h={6} className="arrow-btn prev" />}
                     onClick={(e) => { e.preventDefault(); slickRef1.slickPrev() }}
                     aria-label={""} />}
@@ -38,7 +38,7 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
                     position={'absolute'}
                     size={'sm'}
                     opacity={0.7}
-                    className="top-[50%] translate-y-[-50%] right-2 z-[9999]"
+                    className="top-[50%] translate-y-[-50%] right-2"
                     icon={<ChevronRightIcon w={6} h={6} className="arrow-btn prev" />}
                     onClick={(e) => { e.preventDefault(); slickRef1.slickNext() }}
                     aria-label={""} />}
