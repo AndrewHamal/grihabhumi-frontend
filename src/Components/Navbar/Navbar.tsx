@@ -31,7 +31,7 @@ import { fetcherAuth, logout } from "@/pages/api/authApi";
 import { getCookie } from "cookies-next";
 import { MdApartment, MdAppRegistration, MdChevronRight, MdFormatPaint, MdHome, MdHomeWork, MdHouse, MdList, MdLogin, MdLogout, MdMan4, MdPhoneForwarded, MdPlusOne, MdPostAdd, MdSearch, MdWork } from "react-icons/md";
 import Logo from "../Logo";
-
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 function Navbar() {
     const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure()
@@ -390,6 +390,14 @@ function Navbar() {
                 isOpen={isSignUpOpen}
                 onClose={onSignUpClose}
                 popTab={popTab}
+            />
+
+            <FloatingWhatsApp
+                phoneNumber={"9862998038"}
+                accountName={"Griha bhumi"}
+                allowClickAway={true}
+                chatMessage={`Hello there! 🤝 \nHow can we help you?`}
+                avatar={'https://fu057peo.a2hosted.com/storage/logo/logo-white.png'}
             />
         </>
     )
