@@ -159,7 +159,7 @@ export default function SearchModal({ isOpen, onClose, handleSubmit, control, wa
                         </div>
                     </div>
 
-                    {!category_id?.map((res: any) => res._id).includes('5') && <div className="mt-5">
+                    {!category_id?.map((res: any) => res?._id).includes('5') && <div className="mt-5">
                         <Text fontSize="14px" fontWeight={"semibold"}>
                             House Type
                         </Text>

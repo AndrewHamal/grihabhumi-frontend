@@ -8,21 +8,19 @@ function BuyOption({ control, categories, watch }: any) {
 
     return (
         <Flex alignItems="center" gap={5}>
-            <Controller
-                name='category_id'
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                    <RadioGroup onChange={onChange} value={value}>
-                        <Stack direction='row' className={style.radioBtnBox}>
-                            {
-                                categories?.data?.map((res: any, key: number) => (
-                                    <Radio key={key} colorScheme='green' value={res.id?.toString()} fontSize="10px !important">{res?.name}</Radio>
-                                ))
-                            }
-                        </Stack>
-                    </RadioGroup>
-                )}
-            />
+            {/* <RadioGroup> */}
+            <Stack direction='row' className={style.radioBtnBox}>
+                {categories?.data?.map((res: any, key: number) => (
+                    <Controller
+                        name={`category_id[${key}]`}
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                            <Checkbox isChecked={value?._id == res.id ? true : false} key={key} onChange={(e) => value ? onChange() : onChange({ _id: res?.id })} colorScheme='green' value={res.id?.toString()} fontSize="10px !important">{res?.name}</Checkbox>
+                        )}
+                    />
+                ))}
+            </Stack>
+            {/* </RadioGroup> */}
 
             {watch('category_id') == 4 && <Flex alignItems="center" gap={5}>
                 <Menu closeOnSelect={false} className={style.radioBtnBox}>
