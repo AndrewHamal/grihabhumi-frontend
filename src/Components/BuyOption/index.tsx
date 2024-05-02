@@ -12,7 +12,7 @@ function BuyOption({ control, categories, watch }: any) {
                 name='category_id'
                 control={control}
                 render={({ field: { onChange, value } }) => (
-                    <RadioGroup onChange={onChange} value={value}>
+                    <RadioGroup onChange={(e) => console.log(e)} value={value}>
                         <Stack direction='row' className={style.radioBtnBox}>
                             {
                                 categories?.data?.map((res: any, key: number) => (
