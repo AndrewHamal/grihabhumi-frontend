@@ -421,6 +421,7 @@ function Homepage() {
             <Text>
               Didn't you find the property of your <Text as="b">choice? </Text> Tell us what you need and we will guide you <Text as="b">find the best property. </Text>
             </Text>
+            <Link href="mailto:bhumigriha@gmail.com">
             <Button
               color="#464646"
               bgColor="#fff"
@@ -436,6 +437,7 @@ function Homepage() {
             >
               Request Property
             </Button>
+            </Link>
           </Flex>
         </div>
 

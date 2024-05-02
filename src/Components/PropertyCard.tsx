@@ -146,7 +146,7 @@ export default function PropertyCard({ isMobile = false, res, className, isPrope
 
                             <div className="flex items-center gap-1 mt-1">
                                 <FaLocationDot className="mb-[1px] text-blue-500 w-[15px]" size={10} />
-                                <Text noOfLines={1} className="text-[#4B5564] text-[13px] text-blue-500 font-[400]">{res.location}</Text>
+                                <Text noOfLines={1} className="text-[#4B5564] text-[13px] text-blue-500 font-[400]">{res.location}, {res?.city?.name}</Text>
                             </div>
 
                             {!isProperty && <div className="mb-auto mt-2  w-[100%]">
