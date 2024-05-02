@@ -13,6 +13,7 @@ function BuyOption({ control, categories, watch }: any) {
                 {categories?.data?.map((res: any, key: number) => (
                     <Controller
                         name={`category_id[${key}]`}
+                        key={key}
                         control={control}
                         render={({ field: { onChange, value } }) => (
                             <Checkbox isChecked={value?._id == res.id ? true : false} key={key} onChange={(e) => value ? onChange() : onChange({ _id: res?.id })} colorScheme='green' value={res.id?.toString()} fontSize="10px !important">{res?.name}</Checkbox>
